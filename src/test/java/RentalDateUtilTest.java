@@ -1,9 +1,9 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,9 +24,9 @@ public class RentalDateUtilTest {
     @Test
     @DisplayName("Different string of dates should display in 1 to two digit format.")
     void testTwoDigitFormat() {
-        assertEquals("1/6/20", RentalDateUtil.getTwoDigitFormat(LocalDate.of(2020, 1, 6)));
+        assertEquals("01/06/20", RentalDateUtil.getTwoDigitFormat(LocalDate.of(2020, 1, 6)));
         assertEquals("11/16/20", RentalDateUtil.getTwoDigitFormat(LocalDate.of(2020, 11, 16)));
-        assertEquals("1/16/55", RentalDateUtil.getTwoDigitFormat(LocalDate.of(2055, 1, 16)));
+        assertEquals("01/16/55", RentalDateUtil.getTwoDigitFormat(LocalDate.of(2055, 1, 16)));
     }
 
     @Test

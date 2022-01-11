@@ -2,13 +2,16 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class RentalDateUtil {
 
     public static String getTwoDigitFormat(LocalDate date){
-        return date == null ? null : date.format(DateTimeFormatter.ofPattern("M/d/yy"));
+        return date == null ? null : date.format(DateTimeFormatter.ofPattern("MM/dd/yy"));
     }
 
     public static LocalDate convertToLocalDate(String date){

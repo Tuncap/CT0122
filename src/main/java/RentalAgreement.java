@@ -46,14 +46,14 @@ public class RentalAgreement {
     }
 
     private int getChargeDays(ToolPricing toolPricing, LocalDate startDate, LocalDate endDate){
-        Set<LocalDate> holidays = toolPricing.isChargeHoliday() ?
+        Set<LocalDate> holidays = !toolPricing.isChargeHoliday() ?
                 RentalDateUtil.getHolidaysWithinRange(startDate.getYear(), endDate.getYear())
                 : new HashSet<>();
-        Set<LocalDate> dates = startDate.datesUntil(endDate).collect(Collectors.toSet());
+        Set<LocalDate> dates = startDate.plusDays(1).datesUntil(endDate.plusDays(1)).collect(Collectors.toSet());
         List<LocalDate> datesToRemove = new ArrayList<>();
 
         for (LocalDate date : dates) {
-            if (toolPricing.isChargeHoliday() && holidays.contains(date)) {
+            if (!toolPricing.isChargeHoliday() && holidays.contains(date)) {
                 datesToRemove.add(date);
             }
 
@@ -78,11 +78,11 @@ public class RentalAgreement {
     }
 
     public void print() {
-        System.out.format("Rental Agreement\n"+
+        System.out.format("Rental Agreement\n" +
                         "Tool code: %s\n" +
-                        "Tool type:  %s\n" +
-                        "Tool brand:  %s\n" +
-                        "Rental days:  %s\n" +
+                        "Tool type: %s\n" +
+                        "Tool brand: %s\n" +
+                        "Rental days: %s\n" +
                         "Check out date: %s\n" +
                         "Due date: %s\n" +
                         "Daily rental charge: %s\n" +

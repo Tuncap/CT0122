@@ -24,16 +24,16 @@ public class RentalAgreementTest {
         rentalAgreement.print();
         assertEquals("Rental Agreement\n" +
                 "Tool code: JAKR\n" +
-                "Tool type:  Jackhammer\n" +
-                "Tool brand:  Ridgid\n" +
-                "Rental days:  5\n" +
-                "Check out date: 3/9/15\n" +
-                "Due date: 3/14/15\n" +
+                "Tool type: Jackhammer\n" +
+                "Tool brand: Ridgid\n" +
+                "Rental days: 5\n" +
+                "Check out date: 03/09/15\n" +
+                "Due date: 03/14/15\n" +
                 "Daily rental charge: $2.99\n" +
-                "Charge days: 5\n" +
-                "Pre-discount charge: $14.95\n" +
+                "Charge days: 4\n" +
+                "Pre-discount charge: $11.96\n" +
                 "Discount percent: 10%\n" +
-                "Discount amount: $1.50\n" +
-                "Final charge: $13.45\n",  outputStreamCaptor.toString());
+                "Discount amount: $1.20\n" +
+                "Final charge: $10.76\n", outputStreamCaptor.toString());
     }
 }

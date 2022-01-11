@@ -13,6 +13,13 @@ public class CheckoutRequest {
         this.checkoutDate = checkoutDate;
     }
 
+    public CheckoutRequest(String toolCode, String checkoutDate, int rentalDays, String discount) {
+        this.toolCode = toolCode;
+        this.checkoutDate = RentalDateUtil.convertToLocalDate(checkoutDate);
+        this.daysToRent = rentalDays;
+        this.discount = NumberUtil.convertPercentToInt(discount);
+    }
+
     public String getToolCode() {
         return toolCode;
     }
